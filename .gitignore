@@ -1,0 +1,31 @@
+## .NET
+bin/
+obj/
+*.user
+*.userosscache
+*.sln.docstates
+
+## IDE
+.idea/
+.vs/
+*.suo
+*.swp
+*~
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+## NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+## Test results
+[Tt]est[Rr]esult*/
+*.trx
+
+## macOS
+.DS_Store
