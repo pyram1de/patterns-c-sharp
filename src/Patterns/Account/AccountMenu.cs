@@ -1,4 +1,4 @@
-namespace Patterns;
+namespace Patterns.Account;
 
 public class AccountMenu
 {
