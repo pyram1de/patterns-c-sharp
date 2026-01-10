@@ -1,10 +1,11 @@
 namespace Patterns.InventoryManagement;
 
-public class AddInventoryCommand: InventoryCommand, IParameterisedCommand
+internal class AddInventoryCommand: NonTerminatingCommand, IParameterisedCommand
 {
-    public AddInventoryCommand(IUserInterface userInterface) : base(false, userInterface)
+    private readonly IInventoryContext _context;
+    public AddInventoryCommand(IUserInterface userInterface, IInventoryContext context) : base(userInterface)
     {
-        
+        _context = context;
     }
     public string InventoryName { get; private set; }
 
@@ -19,12 +20,11 @@ public class AddInventoryCommand: InventoryCommand, IParameterisedCommand
 
     public string GetParameter(string parameterName)
     {
-        var console = new ConsoleUserInterface();
-        return console.ReadValue("Please enter the inventory " + parameterName + ": ");
+        return Interface.ReadValue("Please enter the inventory " + parameterName + ": ");
     }
 
     internal override bool InternalCommand()
     {
-        return true;
+        return _context.AddBook(InventoryName);
     }
 }
