@@ -1,6 +1,6 @@
 namespace Patterns.InventoryManagement;
 
-class Book
+internal class Book
 {
     public required string Name { get; set; }
     public int Quantity { get; set; }
