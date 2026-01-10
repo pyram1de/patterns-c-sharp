@@ -1,8 +1,15 @@
 namespace Patterns;
 
-public interface IUserInterface
+public interface IUserInterface: IWriteUserInterface, IReadUserInterface 
+{}
+
+public interface IWriteUserInterface
 {
-    public string ReadValue(string message);
     public void WriteMessage(string message);
     public void WriteWarning(string message);
+}
+
+public interface IReadUserInterface
+{
+    public string ReadValue(string message);
 }
