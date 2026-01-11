@@ -1,4 +1,5 @@
 using Patterns.Account;
+using Patterns.InventoryManagement;
 
 namespace Patterns;
 
@@ -7,6 +8,18 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("=== C# Design Patterns ===\n");
+
+        var terminateSession = false;
+        
+        IUserInterface userInterface = new ConsoleUserInterface();
+        IInventoryCommandFactory factory = new InventoryCommandFactory(userInterface);
+
+        while (!terminateSession)
+        {
+            var error = false;
+            var command = factory.GetCommand(userInterface.ReadValue("enter value:"));
+            (error, terminateSession) = command.RunCommand();
+        }
 
         while (true)
         {
