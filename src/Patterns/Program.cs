@@ -12,6 +12,7 @@ class Program
         services.AddTransient<IUserInterface, ConsoleUserInterface>();
         services.AddTransient<IInventoryCommandFactory, InventoryCommandFactory>();
         services.AddTransient<ICatalogService, CatalogService>();
+        services.AddSingleton<IInventoryContext, InventoryContext>();
     }
     static void Main(string[] args)
     {
@@ -22,18 +23,6 @@ class Program
 
         var service = serviceProvider.GetService<ICatalogService>();
         service.Run();
-
-        var terminateSession = false;
-        
-        IUserInterface userInterface = new ConsoleUserInterface();
-        IInventoryCommandFactory factory = new InventoryCommandFactory(userInterface);
-
-        while (!terminateSession)
-        {
-            var error = false;
-            var command = factory.GetCommand(userInterface.ReadValue("enter value:"));
-            (error, terminateSession) = command.RunCommand();
-        }
 
         while (true)
         {

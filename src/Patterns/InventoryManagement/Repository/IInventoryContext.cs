@@ -1,12 +1,12 @@
 namespace Patterns.InventoryManagement;
 
-internal class Book
+public class Book
 {
     public required string Name { get; set; }
     public int Quantity { get; set; }
 }
 
-internal interface IInventoryContext
+public interface IInventoryContext
 {
     Book[] GetBooks();
     bool AddBook(string name);

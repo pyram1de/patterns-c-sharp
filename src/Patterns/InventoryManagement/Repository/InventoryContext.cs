@@ -2,38 +2,15 @@ using System.Collections.Concurrent;
 
 namespace Patterns.InventoryManagement;
 
-internal class InventoryContext: IInventoryContext
+public class InventoryContext: IInventoryContext
 {
     
-    protected InventoryContext()
+    public InventoryContext()
     {
         _books = new ConcurrentDictionary<string, Book>();
     }
-
-    private static InventoryContext _instance;
+    
     private static readonly object _lock = new object();
-
-    public static InventoryContext GetContext
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                //lock (_lock)
-                //{
-                    if (_instance == null)
-                    {
-                        //lock (_lock)
-                        //{
-                            _instance = new InventoryContext();
-                        //}
-                    }
-                //}
-            }
-
-            return _instance;
-        }
-    }
 
     private readonly IDictionary<string, Book> _books;
 
