@@ -2,12 +2,12 @@ namespace Patterns.InventoryManagement;
 
 internal class UpdateQuantityCommand: NonTerminatingCommand, IParameterisedCommand
 {
-    private IInventoryContext _context;
+    private IInventoryContextWrite _context;
     private int _quantity;
     internal int Quantity { get => _quantity; private set => _quantity = value; }
     internal string InventoryName { get; private set; }
     
-    public UpdateQuantityCommand(IUserInterface userInterface, IInventoryContext context) : base(userInterface)
+    public UpdateQuantityCommand(IUserInterface userInterface, IInventoryContextWrite context) : base(userInterface)
     {
         _context = context;
     }

@@ -6,9 +6,17 @@ public class Book
     public int Quantity { get; set; }
 }
 
-public interface IInventoryContext
+public interface IInventoryContextRead
 {
     Book[] GetBooks();
+}
+
+public interface IInventoryContextWrite
+{
     bool AddBook(string name);
     bool UpdateQuantity(string name, int quantity);
+}
+
+public interface IInventoryContext : IInventoryContextRead, IInventoryContextWrite
+{
 }
