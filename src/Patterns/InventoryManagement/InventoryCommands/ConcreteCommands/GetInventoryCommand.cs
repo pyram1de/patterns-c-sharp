@@ -3,8 +3,9 @@ namespace Patterns.InventoryManagement;
 internal class GetInventoryCommand: NonTerminatingCommand
 {
     private readonly IInventoryContextRead _context;
+    protected override string[] CommandStrings => new[] {"get", "g" };
 
-    internal GetInventoryCommand(IUserInterface userInterface, IInventoryContextRead context) : base(userInterface)
+    public GetInventoryCommand(IUserInterface userInterface, IInventoryContextRead context) : base(userInterface)
     {
         _context = context;
     }

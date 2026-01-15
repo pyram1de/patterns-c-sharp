@@ -6,6 +6,8 @@ internal class UpdateQuantityCommand: NonTerminatingCommand, IParameterisedComma
     private int _quantity;
     internal int Quantity { get => _quantity; private set => _quantity = value; }
     internal string InventoryName { get; private set; }
+
+    protected override string[] CommandStrings => new[] {"update", "u" };
     
     public UpdateQuantityCommand(IUserInterface userInterface, IInventoryContextWrite context) : base(userInterface)
     {

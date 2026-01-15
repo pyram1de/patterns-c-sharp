@@ -2,6 +2,7 @@ namespace Patterns.InventoryManagement;
 
 internal class HelpCommand: NonTerminatingCommand
 {
+    protected override string[] CommandStrings => new[] { "?" };
     public HelpCommand(IUserInterface userInterface) : base(userInterface)
     {
         

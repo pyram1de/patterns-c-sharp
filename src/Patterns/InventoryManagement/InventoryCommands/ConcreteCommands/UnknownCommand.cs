@@ -1,8 +1,16 @@
+using System.Runtime.InteropServices.Marshalling;
+
 namespace Patterns.InventoryManagement;
 
 internal class UnknownCommand: NonTerminatingCommand
 {
     private IUserInterface _userInterface;
+    protected override string[] CommandStrings => new[] { "" };
+
+    public override bool IsCommandFor(string input)
+    {
+        return true;
+    }
     public UnknownCommand(IUserInterface userInterface): base(userInterface)
     {
         _userInterface = userInterface;

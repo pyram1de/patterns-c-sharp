@@ -4,6 +4,14 @@ public abstract class InventoryCommand
 {
     private readonly bool _isTerminatingCommand;
     protected IUserInterface Interface { get; }
+
+    protected abstract string[] CommandStrings { get; }
+
+    public virtual bool IsCommandFor(string input)
+    {
+        return CommandStrings.Contains(input.ToLower());
+    }
+    
     internal InventoryCommand(bool commandIsTerminating, IUserInterface userInterface)
     {
         _isTerminatingCommand = commandIsTerminating;

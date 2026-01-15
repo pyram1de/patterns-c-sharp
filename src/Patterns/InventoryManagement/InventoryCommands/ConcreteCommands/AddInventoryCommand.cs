@@ -8,6 +8,7 @@ internal class AddInventoryCommand: NonTerminatingCommand, IParameterisedCommand
         _context = context;
     }
     public string InventoryName { get; private set; }
+    protected override string[] CommandStrings => new[] { "add", "a" };
 
     public bool GetParameters()
     {
