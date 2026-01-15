@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Patterns.InventoryManagement;
 
 public interface IInventoryCommandFactory
@@ -7,14 +9,14 @@ public interface IInventoryCommandFactory
 
 public class InventoryCommandFactory: IInventoryCommandFactory
 {
-    private readonly IEnumerable<InventoryCommand> _commands;
-    public InventoryCommandFactory(IEnumerable<InventoryCommand> commands)
+    private readonly IServiceProvider _serviceProvider;
+    public InventoryCommandFactory(IServiceProvider serviceProvider)
     {
-        _commands = commands;
+        _serviceProvider = serviceProvider;
     }
     
     public InventoryCommand GetCommand(string input)
     {
-        return _commands.First(c => c.IsCommandFor(input));
+        return _serviceProvider.GetServices<InventoryCommand>().First(c => c.IsCommandFor(input));
     }
 }
