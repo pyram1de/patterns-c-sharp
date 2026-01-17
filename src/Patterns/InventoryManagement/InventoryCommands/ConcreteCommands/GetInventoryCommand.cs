@@ -1,6 +1,6 @@
 namespace Patterns.InventoryManagement;
 
-internal class GetInventoryCommand: NonTerminatingCommand
+public class GetInventoryCommand: NonTerminatingCommand
 {
     private readonly IInventoryContextRead _context;
     protected override string[] CommandStrings => new[] {"get", "g" };

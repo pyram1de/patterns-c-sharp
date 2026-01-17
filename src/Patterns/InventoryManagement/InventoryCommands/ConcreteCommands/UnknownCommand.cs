@@ -2,7 +2,7 @@ using System.Runtime.InteropServices.Marshalling;
 
 namespace Patterns.InventoryManagement;
 
-internal class UnknownCommand: NonTerminatingCommand
+public class UnknownCommand: NonTerminatingCommand
 {
     private IUserInterface _userInterface;
     protected override string[] CommandStrings => new[] { "" };

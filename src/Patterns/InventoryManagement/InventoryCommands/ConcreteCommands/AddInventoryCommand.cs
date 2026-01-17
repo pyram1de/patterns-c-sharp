@@ -1,6 +1,6 @@
 namespace Patterns.InventoryManagement;
 
-internal class AddInventoryCommand: NonTerminatingCommand, IParameterisedCommand
+public class AddInventoryCommand: NonTerminatingCommand, IParameterisedCommand
 {
     private readonly IInventoryContextWrite _context;
     public AddInventoryCommand(IUserInterface userInterface, IInventoryContextWrite context) : base(userInterface)

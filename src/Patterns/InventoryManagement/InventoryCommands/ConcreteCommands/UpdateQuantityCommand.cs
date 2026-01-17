@@ -1,6 +1,6 @@
 namespace Patterns.InventoryManagement;
 
-internal class UpdateQuantityCommand: NonTerminatingCommand, IParameterisedCommand
+public class UpdateQuantityCommand: NonTerminatingCommand, IParameterisedCommand
 {
     private IInventoryContextWrite _context;
     private int _quantity;

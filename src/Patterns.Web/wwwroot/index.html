@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Inventory Management System</h1>
+            <p>Manage your inventory with ease</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="items">Items</button>
+            <button class="tab-button" data-tab="add">Add Item</button>
+            <button class="tab-button" data-tab="help">Help</button>
+        </nav>
+
+        <!-- Items Tab -->
+        <section id="items" class="tab-content active">
+            <h2>Inventory Items</h2>
+            <button onclick="loadItems()" class="btn btn-primary">Refresh Items</button>
+            <div id="items-list" class="items-grid"></div>
+        </section>
+
+        <!-- Add Item Tab -->
+        <section id="add" class="tab-content">
+            <h2>Add New Item</h2>
+            <form id="add-item-form">
+                <div class="form-group">
+                    <label for="itemId">Item ID:</label>
+                    <input type="text" id="itemId" name="itemId" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName" name="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add Item</button>
+            </form>
+            <div id="add-message" class="message"></div>
+        </section>
+
+        <!-- Help Tab -->
+        <section id="help" class="tab-content">
+            <h2>API Documentation</h2>
+            <div id="help-content"></div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Patterns C# - Inventory Management System</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
